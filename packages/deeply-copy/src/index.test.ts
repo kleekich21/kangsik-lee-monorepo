@@ -95,6 +95,6 @@ describe("deeplyCopy", () => {
     expect(copiedNode1).not.toBe(node1);
     expect(copiedNode1.next).toEqual(node2);
     expect(copiedNode1.next).not.toBe(node2);
-    expect(copiedNode1.next.next).toBe(copiedNode1); // check circular reference
+    expect(copiedNode1.next?.next).toBe(copiedNode1); // check circular reference
   });
 });
