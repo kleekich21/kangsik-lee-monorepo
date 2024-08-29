@@ -1,4 +1,4 @@
-import { deeplyCopy } from "./index";
+import { deeplyCopy } from "./deepCopy";
 import { describe, expect, test } from "@jest/globals";
 
 describe("deeplyCopy", () => {
