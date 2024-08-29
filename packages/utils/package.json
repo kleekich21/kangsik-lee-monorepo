@@ -2,14 +2,6 @@
   "name": "@kangsik-lee/utils",
   "type": "module",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "dev": "tsc --watch",
-    "build": "tsc --p ./tsconfig.json",
-    "build:clean": "rm -rf ./dist",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "exports": {
     "./deepCopy": {
       "types": "./src/deepCopy.ts",
@@ -19,6 +11,12 @@
       "types": "./src/delay.ts",
       "default": "./dist/delay.js"
     }
+  },
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc",
+    "build:clean": "rm -rf ./dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",

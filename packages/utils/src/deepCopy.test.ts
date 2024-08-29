@@ -1,46 +1,46 @@
-import { deeplyCopy } from "./deepCopy.js";
+import { deepCopy } from "./deepCopy.js";
 import { describe, expect, test } from "@jest/globals";
 
-describe("deeplyCopy", () => {
+describe("deepCopy", () => {
   test("primitive type을 복사한다. ", () => {
-    expect(deeplyCopy(12)).toBe(12);
-    expect(deeplyCopy("dummy")).toBe("dummy");
-    expect(deeplyCopy(false)).toBe(false);
-    expect(deeplyCopy(undefined)).toBe(undefined);
-    expect(deeplyCopy(null)).toBeNull();
-    expect(deeplyCopy(Symbol("foo"))).toBe("foo");
+    expect(deepCopy(12)).toBe(12);
+    expect(deepCopy("dummy")).toBe("dummy");
+    expect(deepCopy(false)).toBe(false);
+    expect(deepCopy(undefined)).toBe(undefined);
+    expect(deepCopy(null)).toBeNull();
+    expect(deepCopy(Symbol("foo"))).toBe("foo");
   });
   test("단일 레벨 객체를 복사한다.", () => {
     const obj = { a: "foo", b: "bar" };
-    const copied = deeplyCopy(obj);
+    const copied = deepCopy(obj);
     expect(copied).toEqual(obj);
     expect(copied).not.toBe(obj);
   });
   test("단일 레벨 배열을 복사한다.", () => {
     const arr = [1, 2, 3];
-    const copied = deeplyCopy(arr);
+    const copied = deepCopy(arr);
     expect(copied).toEqual(arr);
     expect(copied).not.toBe(arr);
   });
   test("중첩 객체를 내부까지 복사한다.", () => {
     const nestedObj = { a: { b: "foo" }, c: { d: { e: "bar" }, f: "baz" } };
-    const copied = deeplyCopy(nestedObj);
+    const copied = deepCopy(nestedObj);
     expect(copied).toEqual(nestedObj);
     expect(copied).not.toBe(nestedObj);
   });
   test("중첩 배열을 내부까지 복사한다.", () => {
     const nestedArr = [[0], [[1], [2]], [[[3]]]];
-    const copied = deeplyCopy(nestedArr);
+    const copied = deepCopy(nestedArr);
     expect(copied).toEqual(nestedArr);
     expect(copied).not.toBe(nestedArr);
     expect(copied[1]).toEqual(nestedArr[1]);
     expect(copied[1]).not.toBe(nestedArr[1]);
-    expect(copied[1][0]).toEqual(nestedArr[1][0]);
-    expect(copied[1][0]).not.toBe(nestedArr[1][0]);
+    expect(copied[1]?.[0]).toEqual(nestedArr[1]?.[0]);
+    expect(copied[1]?.[0]).not.toBe(nestedArr[1]?.[0]);
   });
   test("배열을 프로퍼티로 포함한 객체를 복사한다.", () => {
     const nestedObj = { a: [1, 2], c: { d: { e: [3] }, f: [4, 5] } };
-    const copied = deeplyCopy(nestedObj);
+    const copied = deepCopy(nestedObj);
     expect(copied).toEqual(nestedObj);
     expect(copied).not.toBe(nestedObj);
     expect(copied.a).toEqual(nestedObj.a);
@@ -50,7 +50,7 @@ describe("deeplyCopy", () => {
   });
   test("객체를 요소로 포함한 배열을 복사한다.", () => {
     const nestedArr = [{ a: 1 }, { b: "foo" }, { c: ["bar", "baz"] }];
-    const copied = deeplyCopy(nestedArr);
+    const copied = deepCopy(nestedArr);
     expect(copied).toEqual(nestedArr);
     expect(copied).not.toBe(nestedArr);
     expect(copied[0]).toEqual(nestedArr[0]);
@@ -62,7 +62,7 @@ describe("deeplyCopy", () => {
     }
     const obj: CircularObject = { a: undefined };
     obj.a = obj;
-    const copied = deeplyCopy(obj);
+    const copied = deepCopy(obj);
     expect(copied).not.toBe(obj);
     expect(copied.a).toBe(copied);
   });
@@ -70,7 +70,7 @@ describe("deeplyCopy", () => {
     type CircularArray = CircularArray[];
     const arr: CircularArray = [];
     arr.push(arr);
-    const copied = deeplyCopy(arr);
+    const copied = deepCopy(arr);
     expect(copied).toEqual(arr);
     expect(copied).not.toEqual(arr);
   });
@@ -89,7 +89,7 @@ describe("deeplyCopy", () => {
     node1.next = node2;
     node2.next = node1;
 
-    const copiedNode1 = deeplyCopy(node1);
+    const copiedNode1 = deepCopy(node1);
 
     expect(copiedNode1).toEqual(node1);
     expect(copiedNode1).not.toBe(node1);

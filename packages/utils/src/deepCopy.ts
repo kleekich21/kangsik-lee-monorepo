@@ -9,15 +9,15 @@
  * @param {WeakMap<Object, Object>} [hash=new WeakMap()] - 순환 참조를 핸들링하기 위해 WeakMap이 사용되었다.
  * @returns {P} target을 깊은 복사로 생성한 불변 객체
  */
-export function deeplyCopy<P>(target: P, hash = new WeakMap()): P {
-  if (typeof target === 'object' && target !== null) {
+export function deepCopy<P>(target: P, hash = new WeakMap()): P {
+  if (typeof target === "object" && target !== null) {
     if (hash.has(target)) {
       return hash.get(target);
     }
     const obj: any = Array.isArray(target) ? [] : {};
     hash.set(target, obj);
     for (let prop in target) {
-      obj[prop] = deeplyCopy(target[prop], hash);
+      obj[prop] = deepCopy(target[prop], hash);
     }
     return obj;
   } else {

@@ -1,8 +1,11 @@
 import Image from "next/image";
 import { Button } from "@repo/ui/button";
 import styles from "./page.module.css";
+import { deepCopy } from "@kangsik-lee/utils/deepCopy";
 
 export default function Home() {
+  const path = "app/page.tsx";
+  const copiedPath = deepCopy(path);
   return (
     <div className={styles.page}>
       <main className={styles.main}>
@@ -16,7 +19,7 @@ export default function Home() {
         />
         <ol>
           <li>
-            Get started by editing <code>app/page.tsx</code>
+            Get started by editing <code>{copiedPath}</code>
           </li>
           <li>Save and see your changes instantly.</li>
         </ol>
