@@ -1,5 +1,5 @@
 import { describe, expect, test } from "@jest/globals";
-import { delay } from "./delay";
+import { delay } from "./delay.js";
 import timeSpan from "time-span";
 
 describe("delay", () => {
