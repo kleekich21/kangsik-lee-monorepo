@@ -17,7 +17,7 @@
     },
     "./delay": {
       "types": "./src/delay.ts",
-      "default": "./dist/default"
+      "default": "./dist/delay.js"
     }
   },
   "keywords": [],
