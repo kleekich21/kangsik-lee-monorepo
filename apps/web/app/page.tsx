@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Button } from "@repo/ui/button";
 import styles from "./page.module.css";
-import { deepCopy } from "@kangsik-lee/utils/deepCopy";
+import { deepCopy } from "@kleekich21/utils/deepCopy";
 
 export default function Home() {
   const path = "app/page.tsx";

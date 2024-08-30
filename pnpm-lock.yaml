@@ -60,7 +60,7 @@ importers:
 
   apps/web:
     dependencies:
-      '@kangsik-lee/utils':
+      '@kleekich21/utils':
         specifier: workspace:*
         version: link:../../packages/utils
       '@repo/ui':
