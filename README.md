@@ -10,10 +10,13 @@ Turborepo를 활용한 개인 프로젝트용 모노레포입니다. 다양한 �
 ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
 ![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
 
-### Apps and Packages
+### Apps
 
 - `docs`: a [Next.js](https://nextjs.org/) app
 - `web`: another [Next.js](https://nextjs.org/) app
+
+### Packages
+
 - `@repo/ui`: `web` 및 `docs` 애플리케이션에서 공통으로 사용하는 스텁(Stub) React 컴포넌트 라이브러리
 - `@repo/eslint-config`: `eslint` 설정 (`eslint-config-next`, `eslint-config-prettier` 포함)
 - `@repo/typescript-config`: 모노레포 전반에서 사용되는 `tsconfig.json`
@@ -21,6 +24,7 @@ Turborepo를 활용한 개인 프로젝트용 모노레포입니다. 다양한 �
 
 ### Utilities
 
+- @kleekich21/utils: 커스텀 유틸리티 함수들을 모아놓은 패키지입니다.
 - [TypeScript](https://www.typescriptlang.org/) for static type checking
 - [ESLint](https://eslint.org/) for code linting
 - [Prettier](https://prettier.io) for code formatting
