@@ -10,13 +10,21 @@
     "./delay": {
       "types": "./src/delay.ts",
       "default": "./dist/delay.js"
+    },
+    "./debounce": {
+      "types": "./src/debounce.ts",
+      "default": "./dist/debounce.js"
+    },
+    "./throttle": {
+      "types": "./src/throttle.ts",
+      "default": "./dist/throttle.js"
     }
   },
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc",
     "build:clean": "rm -rf ./dist",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
